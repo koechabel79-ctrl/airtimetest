@@ -575,9 +575,9 @@
 
         async function checkUsernameExists(username) {
             try {
-                const response = await fetch(`${API_BASE}/api/users/username/${username}`);
+                const response = await fetch(`${API_BASE}/api/users/check-username/${username}`);
                 const data = await response.json();
-                return data.success;
+                return data.exists;
             } catch (error) {
                 return false;
             }
@@ -585,9 +585,9 @@
 
         async function checkEmailHasUsername(email) {
             try {
-                const response = await fetch(`${API_BASE}/api/users/email/${email}`);
+                const response = await fetch(`${API_BASE}/api/users/check-email/${email}`);
                 const data = await response.json();
-                return data;
+                return { success: data.exists, user: { username: data.username } };
             } catch (error) {
                 return { success: false };
             }
