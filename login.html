@@ -521,7 +521,7 @@
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
 
-        const API_BASE = window.location.origin;
+        const API_BASE = 'https://airtimeserver.onrender.com';
 
         window.togglePassword = function(inputId, btn) {
             const input = document.getElementById(inputId);
